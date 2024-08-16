@@ -12,7 +12,11 @@
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="navbar-logo">MediaFetch</div>
-            <div class="navbar-links">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-links" id="navbarLinks">
+                <!-- Existing links -->
                 <a href="#about">Tentang</a>
                 <a href="#contact">Kontak</a>
                 <a href="#api">API</a>
@@ -24,6 +28,7 @@
                 <button class="dark-mode-toggle" id="darkModeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
+            
             </div>
         </div>
     </nav>
@@ -126,6 +131,14 @@
     </footer>
 
     <script>
+
+const menuToggle = document.getElementById('menuToggle');
+const navbarLinks = document.getElementById('navbarLinks');
+
+menuToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
+
         // Dark mode toggle functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
@@ -160,6 +173,27 @@
                 alert('Mohon masukkan URL terlebih dahulu');
             }
         });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Menutup menu mobile jika terbuka
+            const navbarLinks = document.getElementById('navbarLinks');
+            if (navbarLinks.classList.contains('active')) {
+                navbarLinks.classList.remove('active');
+            }
+        }
+    });
+});
     </script>
 </body>
 </html>
