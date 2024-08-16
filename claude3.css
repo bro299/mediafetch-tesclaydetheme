@@ -50,6 +50,31 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .dark-mode .navbar {
     background-color: rgba(18, 18, 18, 0.1);
 }
@@ -204,6 +229,35 @@ body {
     background-color: #3a7bc8;
 }
 
+@media (max-width: 365px) {
+    .input-section {
+        padding: 15px 10px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-field {
+        width: 70%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .paste-btn {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .download-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
 /* Features Section */
 .features-section {
     padding: 80px 0;
@@ -234,6 +288,9 @@ body {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 20px;
+}
+section {
+    scroll-margin-top: 70px; /* Sesuaikan dengan tinggi navbar Anda */
 }
 
 /* About Section */
